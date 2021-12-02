@@ -24,8 +24,20 @@ const playAgainButton = document.querySelector(".play-again hide");
 
 const word = "magnolia";
 
-const circles = function () {
-    wordProgress.innerText = "●";
+const placeholder = function (word) {
+    const placeholderLetters = [];
+        for (const letter of word) {
+            console.log(letter);
+            placeholderLetters.push("●");
+    }
+    wordProgress.innerText = placeholderLetters.join("");
 };
 
-circles(word);
+placeholder(word);
+
+guessButton.addEventListener("click", function (e) {
+    e.preventDefault();
+    const guess = letterInput.value;
+    console.log(guess);
+    letterInput.value = "";
+});
